@@ -16,31 +16,6 @@
         <button type="submit" class="btn btn-primary" id="encurtarBtn">Encurtar</button>
       </form>
 
-    <script>
-      document.getElementById('encurtarBtn').addEventListener('click', function(event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
-
-        var entradaurl = document.getElementById('entradaurl').value;
-        var api = "https://is.gd/create.php?format=simple&url=";
-        var url = api + encodeURIComponent(entradaurl);
-
-        fetch(url)
-          .then(function(response) {
-            if (response.ok) {
-              return response.text();
-            }
-            throw new Error("Erro na solicitação da URL: " + response.status);
-          })
-          .then(function(resposta) {
-            console.log(resposta);
-            // Faça o que desejar com a resposta (por exemplo, exibir em algum lugar na página)
-          })
-          .catch(function(error) {
-            console.log("Erro: " + error.message);
-          });
-      });
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>

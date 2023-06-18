@@ -1,18 +1,16 @@
-var entradaurl;
-var api = "https://is.gd/create.php?format=simple&url="; 
-var url = api + entradaurl;
+var entradaurl = "https://www.youtube.com/watch?v=8BAl6z0lXdw"; // Defina o valor da entradaurl
 
-
-fetch(url)
-  .then(function(response) {
-    if (response.ok) {
-      return response.text();
+fetch(`http://localhost:3000/api/${entradaurl}`)
+  .then(response => response.text()) // Alteração aqui para obter o corpo da resposta como texto
+  .then(data => {
+    console.log('Resposta do servidor Node:', data); // Exibir o corpo da resposta no console
+    try {
+      const json = JSON.parse(data); // Tentar fazer o parsing do JSON
+      console.log('Resposta do servidor Node (JSON):', json);
+    } catch (error) {
+      console.error('Erro na análise do JSON:', error);
     }
-    throw new Error("Erro na solicitação da URL: " + response.status);
   })
-  .then(function(resposta) {
-    console.log(resposta); 
-  })
-  .catch(function(error) {
-    console.log("Erro: " + error.message);
+  .catch(error => {
+    console.error('Erro na chamada do servidor:', error);
   });
