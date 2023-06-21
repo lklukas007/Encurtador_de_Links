@@ -1,6 +1,6 @@
 import express from 'express';
-import fetch from 'node-fetch';
 import cors from 'cors';
+import fetch from 'node-fetch';
 
 const app = express();
 const port = 3000;
@@ -8,10 +8,10 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/:url', (req, res) => {
+app.get('/api/:url(*)', (req, res) => {
   const url = req.params.url;
-
-  const apiURL = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(url)}`;
+  const encodedURL = encodeURIComponent(url);
+  const apiURL = `https://is.gd/create.php?format=simple&url=${encodedURL}`;
 
   fetch(apiURL)
     .then(response => response.text())
