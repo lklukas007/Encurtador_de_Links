@@ -1,4 +1,4 @@
-var entradaurl = 'https://www.google.com.br/';
+var entradaurl = 'https://pt.wikipedia.org/wiki/Brasil';
 const url = 'http://localhost:3000/api/';
 
 try {
