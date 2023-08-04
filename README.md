@@ -16,3 +16,5 @@
 
 Foi utilizado a API aberta do site: https://is.gd/index.php  <br>
 Documentação de como utilizar a API deles: https://is.gd/apishorteningreference.php
+
+##### ▶️ Desenvolvido por Lucas de Oliveira Prado ◀️
